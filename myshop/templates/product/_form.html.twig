@@ -1,0 +1,63 @@
+  {{ form_start(form, {
+            'attr': {
+                'novalidate': "novalidate"
+            }
+        }) }}
+
+         {{form_widget(form._token)}}
+         
+        {# Titre  #}
+        <div class="form-group mb-3">
+            {{form_label(form.title)}}
+            {{form_widget(form.title)}}
+            {{form_help(form.title)}}
+            {{form_errors(form.title)}}
+        </div>
+        
+        {# Résumé  #}
+        <div class="form-group mb-3">
+            {{form_label(form.description)}}
+            {{form_widget(form.description)}}
+            {{form_help(form.description)}}
+            {{form_errors(form.description)}}
+        </div>
+
+                
+        {# Prix  #}
+        <div class="form-group mb-3">
+            {{form_label(form.price)}}
+            {{form_widget(form.price)}}
+            {{form_help(form.price)}}
+            {{form_errors(form.price)}}
+        </div>
+
+        {# Ville  #}
+        <div class="form-group mb-3">
+            {{form_label(form.city)}}
+            {{form_widget(form.city)}}
+            {{form_help(form.city)}}
+            {{form_errors(form.city)}}
+        </div>
+        {# Code postal  #}
+        <div class="form-group mb-3">
+            {{form_label(form.postalCode)}}
+            {{form_widget(form.postalCode)}}
+            {{form_help(form.postalCode)}}
+            {{form_errors(form.postalCode)}}
+        </div>
+        {# Code postal  #}
+        <div class="form-group mb-3">
+            {{form_label(form.image)}}
+            {{form_widget(form.image)}}
+            {{form_help(form.image)}}
+            {{form_errors(form.image)}}
+        </div>
+        {# Texte de réservation  #}
+        {# <div class="form-group mb-3">
+            {{form_label(form.reservationText)}}
+            {{form_widget(form.reservationText)}}
+            {{form_help(form.reservationText)}}
+            {{form_errors(form.reservationText)}}
+        </div> #}
+    <button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(form, {'render_rest': false}) }}

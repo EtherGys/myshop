@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+    <h1>Product</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ product.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ product.price }} €</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ product.city }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ product.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>Couverture</th>
+                <td><img src="/uploads/{{ product.image }}" class="img-thumbnail" width="200" height="200" alt="book cover"></td>
+            </tr>
+            {% if product.reservationText %}
+            <tr>
+                <th>Texte de réservation</th>
+                <td>{{ product.reservationText }}</td>
+            </tr>
+            {% else %}
+            <tr>
+
+                    
+
+                <th><a href="{{ path('app_product_edit', {'id': product.id}) }}"><button type="text">Je réserve</button></a></th>
+
+            </tr>
+            {% endif %}
+            
+        </tbody>
+    </table>
+
+    <a class="text-end" href="{{ path('app_product_index') }}">Retour à la liste de tous les produits</a>
+{% endblock %}

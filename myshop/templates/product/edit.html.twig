@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réserver un livre{% endblock %}
+
+{% block body %}
+    <h1>Je réserve mon livre</h1>
+
+    {{ include('product/_reservation_form.html.twig') }}
+
+    <a href="{{ path('app_product_index') }}">Retour à la liste de tous les produits</a>
+
+{% endblock %}

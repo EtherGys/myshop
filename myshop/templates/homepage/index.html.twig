@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Derniers livres ajoutés{% endblock %}
+
+{% block body %}
+<h1>Nos derniers livres ajoutés !</h1>
+<div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        {# The slice filter extracts a sequence of the items. here, only 15 items will be rendered #}
+        {% for product in products|slice(0, 15) %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img src="/uploads/{{ product.image }}" style="width: 200px" alt="book cover">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary"> Prix : {{ product.price }} €</h6>
+                <p class="card-text">
+                    {% if product.description %}
+                    Résumé : {{ product.description }}
+                    {% endif %}
+                </p>
+                <p class="card-text">{{ product.city }}, {{ product.postalCode }}</p>
+                <p class="card-text"> 
+                    {# if a book is booked, 'Réservé' appear in red. If the book is available, 'Disponible' appears in green #}
+                    {% if product.reservationText %}
+                    <p class="text-danger">Réservé</p>
+                    {% else %}
+                    <p class="text-success">Disponible</p>
+                    {% endif %}
+                </p>
+            </div>
+            <a href="{{ path('app_product_show', {'id': product.id}) }}" class="card-link"><button type="text" class="btn btn-warning">Consulter le produit</button></a>
+        </div>
+        {% else %}
+        <p>
+            <span colspan="8">Aucuns produits dans la base de données</span>
+        </p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
