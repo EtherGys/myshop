@@ -1,12 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product{% endblock %}
+{% block title %}Livre{% endblock %}
 
 {% block body %}
-    <h1>Product</h1>
+    <h1>Livre</h1>
 
     <table class="table">
         <tbody>
+            <tr>
+                <th>Disponibilité</th>
+                <td>{# if a book is booked, 'Réservé' appear in red. If the book is available, 'Disponible' appears in green #}
+                    {% if product.reservationText %}
+                    <p class="text-danger">Réservé</p>
+                    {% else %}
+                    <p class="text-success">Disponible</p>
+                    {% endif %}</td>
+            </tr>
             <tr>
                 <th>Id</th>
                 <td>{{ product.id }}</td>

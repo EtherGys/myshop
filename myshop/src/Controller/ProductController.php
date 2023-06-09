@@ -37,6 +37,7 @@ class ProductController extends AbstractController
 
             $uploadsDir = $root . "/public/uploads/";
 
+            
             $image = $form['image']->getData()->getPathname();
 
             $extension = $form['image']->getData()->getClientOriginalName();
